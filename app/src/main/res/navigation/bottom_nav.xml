@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom_nav"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.livescores.View.Fragments.HomeFragment"
+        android:label="home_fragment"
+        tools:layout="@layout/home_fragment" />
+    <fragment
+        android:id="@+id/discoverFragment"
+        android:name="com.example.livescores.View.Fragments.DiscoverFragment"
+        android:label="discover_fragment"
+        tools:layout="@layout/discover_fragment" />
+    <fragment
+        android:id="@+id/standingsFragment"
+        android:name="com.example.livescores.View.Fragments.StandingsFragment"
+        android:label="standings_fragment"
+        tools:layout="@layout/standings_fragment" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.livescores.View.Fragments.ProfileFragment"
+        android:label="profile_fragment"
+        tools:layout="@layout/profile_fragment" />
+</navigation>

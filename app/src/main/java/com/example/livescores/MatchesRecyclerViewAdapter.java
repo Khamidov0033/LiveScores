@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -22,7 +23,8 @@ import java.util.List;
 
 public class MatchesRecyclerViewAdapter extends RecyclerView.Adapter<MatchesRecyclerViewAdapter.MyViewHolder> {
     List<Response> matchList;
-MatchItemBinding binding;
+    MatchItemBinding matchItemBinding;
+
     public MatchesRecyclerViewAdapter(List<Response> matchList) {
         this.matchList = matchList;
     }
@@ -30,9 +32,8 @@ MatchItemBinding binding;
     @NonNull
     @Override
     public MatchesRecyclerViewAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.match_item, null);
-        return new MyViewHolder(view);
+        matchItemBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.match_item, parent, false);
+        return new MyViewHolder(matchItemBinding);
     }
 
     @Override
@@ -80,8 +81,8 @@ MatchItemBinding binding;
         TextView teamHomeName, teamAwayName, teamHomeScore, teamAwayScore;
         ImageView teamHomeImage, teamAwayImage;
 
-        public MyViewHolder(@NonNull View itemView) {
-            super(itemView);
+        public MyViewHolder(@NonNull MatchItemBinding matchItemBinding) {
+            super(matchItemBinding.getRoot());
             teamAwayName = itemView.findViewById(R.id.teamAwayName);
             teamAwayScore = itemView.findViewById(R.id.teamAwayScore);
             teamHomeName = itemView.findViewById(R.id.teamHomeName);

@@ -13,6 +13,9 @@
 .externalNativeBuild
 .cxx
 local.properties
+app/src/main/java/com/example/livescores/API/Constants.java
+app/src/main/java/com/example/livescores/API/Apiinterface.java
+
 
 
 # Created by https://www.toptal.com/developers/gitignore/api/androidstudio
@@ -149,5 +152,6 @@ fabric.properties
 ### AndroidStudio Patch ###
 
 !/gradle/wrapper/gradle-wrapper.jar
+
 
 # End of https://www.toptal.com/developers/gitignore/api/androidstudio

@@ -10,5 +10,6 @@
     <color name="icon_selected">#A8A7A7</color>
     <color name="grey">#65656B</color>
     <color name="dark_blue">#222232</color>
+    <color name="fulldark_blue">#181829</color>
 
 </resources>

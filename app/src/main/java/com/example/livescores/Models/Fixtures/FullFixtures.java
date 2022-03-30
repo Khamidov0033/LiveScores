@@ -2,6 +2,7 @@ package com.example.livescores.Models.Fixtures;
 
 import java.util.List;
 
+import com.example.livescores.Response;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

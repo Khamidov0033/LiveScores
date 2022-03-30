@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+<variable
+    name="myVar"
+    type="com.example.livescores.Response" />
     </data>
 
     <RelativeLayout
@@ -17,6 +19,7 @@
             android:layout_height="60dp">
 
             <ImageView
+                android:loadHomeImage="@{myVar.teams.home.logo}"
                 android:id="@+id/teamHomeLogo"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
@@ -34,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="15dp"
-                android:text="Poland U21"
+                android:text="@{myVar.teams.home.name}"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toStartOf="@+id/versusText"
                 app:layout_constraintStart_toEndOf="@+id/teamHomeLogo"
@@ -44,7 +47,7 @@
                 android:id="@+id/teamHomeScore"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0"
+                android:text="@{String.valueOf(myVar.goals.home)}"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -86,7 +89,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="15dp"
-                android:text="Hungary U21"
+                android:text="@{myVar.teams.away.name}"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toStartOf="@+id/teamAwayLogo"
                 app:layout_constraintStart_toEndOf="@+id/versusText"
@@ -96,7 +99,7 @@
                 android:id="@+id/teamAwayScore"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0"
+                android:text="@{String.valueOf(myVar.goals.away)}"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -106,6 +109,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/teamAwayName" />
 
             <ImageView
+                android:loadAwayImage="@{myVar.teams.away.logo}"
                 android:id="@+id/teamAwayLogo"
                 android:layout_width="40dp"
                 android:layout_height="40dp"

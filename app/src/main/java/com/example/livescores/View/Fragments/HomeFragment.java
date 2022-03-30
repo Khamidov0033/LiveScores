@@ -18,13 +18,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
 import com.example.livescores.MatchesRecyclerViewAdapter;
 import com.example.livescores.Models.Fixtures.FullFixtures;
-import com.example.livescores.Models.Fixtures.Response;
+import com.example.livescores.Response;
 import com.example.livescores.R;
 import com.example.livescores.ViewModel.HomeViewModel;
 import com.example.livescores.databinding.HomeFragmentBinding;
@@ -38,10 +37,6 @@ public class HomeFragment extends Fragment {
     HomeFragmentBinding binding;
     MatchesRecyclerViewAdapter matchesRecyclerViewAdapter;
     List<Response> matchList;
-
-    public static HomeFragment newInstance() {
-        return new HomeFragment();
-    }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -69,19 +64,17 @@ public class HomeFragment extends Fragment {
     }
 
     private void observeMatches() {
-        mViewModel.getMatches().observe(getViewLifecycleOwner(), new Observer<FullFixtures>() {
-            @Override
-            public void onChanged(FullFixtures matches) {
-                matchesRecyclerViewAdapter.setMatchesList(matches.getResponse());
-                Log.d(TAG, "onChanged: EVERYTHING IS GOOD");
-            }
+        mViewModel.getMatches().observe(getViewLifecycleOwner(), matches -> {
+            matchesRecyclerViewAdapter.setMatchesList(matches.getResponse());
+            Log.d(TAG, "onChanged: EVERYTHING IS GOOD");
+
         });
     }
 
     private void setImageSlider() {
         List<SlideModel> imageList = new ArrayList<SlideModel>();
 
-        imageList.add(new SlideModel("http://goo.gl/gEgYUd", ScaleTypes.CENTER_INSIDE));
+        imageList.add(new SlideModel(R.mipmap.image1, ScaleTypes.FIT));
         imageList.add(new SlideModel(R.mipmap.image2, ScaleTypes.FIT));
         imageList.add(new SlideModel(R.mipmap.image3, ScaleTypes.FIT));
         binding.imageSlider.setImageList(imageList);

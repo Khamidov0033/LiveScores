@@ -1,6 +1,19 @@
-package com.example.livescores.Models.Fixtures;
+package com.example.livescores;
+
+import android.widget.ImageView;
+
+import androidx.databinding.BindingAdapter;
 
 import java.util.List;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.Target;
+import com.example.livescores.Models.Fixtures.Event;
+import com.example.livescores.Models.Fixtures.Fixture;
+import com.example.livescores.Models.Fixtures.Goals;
+import com.example.livescores.Models.Fixtures.League;
+import com.example.livescores.Models.Fixtures.Score;
+import com.example.livescores.Models.Fixtures.Teams;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -71,6 +84,23 @@ public class Response {
 
     public void setEvents(List<Event> events) {
         this.events = events;
+    }
+
+    @BindingAdapter("android:loadHomeImage")
+    public static void loadHomeImage(ImageView imageView, String homeImageUrl){
+        Glide.with(imageView)
+                .load(homeImageUrl)
+                .centerCrop()
+                .override(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL)
+                .into(imageView);
+    }
+    @BindingAdapter("android:loadAwayImage")
+    public static void loadAwayImage(ImageView imageView, String homeImageUrl){
+        Glide.with(imageView)
+                .load(homeImageUrl)
+                .centerCrop()
+                .override(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL)
+                .into(imageView);
     }
 
 }

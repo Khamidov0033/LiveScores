@@ -35,19 +35,15 @@
             android:layout_gravity="center"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-<TextView
+<ImageView
     android:layout_marginLeft="15dp"
-    android:layout_marginTop="8dp"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:textSize="18sp"
-    android:textColor="@color/white"
-    android:text="LIVE GAMES"/>
+    android:layout_width="40dp"
+    android:layout_height="40dp"
+    android:src="@drawable/live"/>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/liveGamesRv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
 
             />
     </LinearLayout>

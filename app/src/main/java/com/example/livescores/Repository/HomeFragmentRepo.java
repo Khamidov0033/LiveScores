@@ -38,7 +38,7 @@ public class HomeFragmentRepo {
 
     public void setMatches() {
         Apiinterface apiinterface = RetrofitClient.getRetrofit().create(Apiinterface.class);
-        Call<FullFixtures> call = apiinterface.getFixtures(null,null,"2022-03-20","39","2021",null,null,null);
+        Call<FullFixtures> call = apiinterface.getFixtures(null,null,"2022-03-17",null,"2021",null,null,null);
         call.enqueue(new Callback<FullFixtures>() {
             @Override
             public void onResponse(Call<FullFixtures> call, retrofit2.Response<FullFixtures> response) {

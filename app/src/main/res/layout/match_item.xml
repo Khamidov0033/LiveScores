@@ -9,34 +9,36 @@
     </data>
 
     <RelativeLayout
+        android:layout_marginTop="5dp"
+        android:background="@color/ligh_black"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="70dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="fill_parent"
-            android:layout_height="60dp">
+            android:layout_height="match_parent">
 
             <ImageView
-                android:loadHomeImage="@{myVar.teams.home.logo}"
                 android:id="@+id/teamHomeLogo"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
+                android:loadHomeImage="@{myVar.teams.home.logo}"
                 android:src="@mipmap/ic_launcher"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:maxLines="1"
-                android:maxLength="15"
-                android:ellipsize="end"
                 android:id="@+id/teamHomeName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="15dp"
+                android:ellipsize="end"
+                android:maxLength="15"
+                android:maxLines="1"
                 android:text="@{myVar.teams.home.name}"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toStartOf="@+id/versusText"
@@ -44,6 +46,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                android:layout_marginTop="2dp"
                 android:id="@+id/teamHomeScore"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -51,44 +54,59 @@
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
+
                 app:layout_constraintEnd_toEndOf="@+id/teamHomeName"
                 app:layout_constraintStart_toStartOf="@+id/teamHomeName"
                 app:layout_constraintTop_toBottomOf="@+id/teamHomeName" />
 
 
             <TextView
+                android:visibility="invisible"
                 android:id="@+id/versusText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="25dp"
                 android:text="vs"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/timeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="16:00"
+                android:textSize="12sp"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="@id/versusText"
+                app:layout_constraintStart_toStartOf="@id/versusText"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/versusText"/>
 
             <TextView
+                android:layout_marginTop="2dp"
                 android:id="@+id/versusSign"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="-"
                 android:textColor="@color/white"
                 android:textSize="28sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/versusText"
-                app:layout_constraintStart_toStartOf="@+id/versusText"
-                app:layout_constraintTop_toBottomOf="@+id/versusText" />
+                android:visibility="visible"
+
+                app:layout_constraintBottom_toBottomOf="@+id/teamHomeScore"
+                app:layout_constraintEnd_toEndOf="@+id/timeText"
+                app:layout_constraintStart_toStartOf="@+id/timeText"
+                app:layout_constraintTop_toTopOf="@+id/teamHomeScore" />
 
             <TextView
-                android:maxLines="1"
-                android:maxLength="15"
-                android:ellipsize="end"
                 android:id="@+id/teamAwayName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="15dp"
+                android:ellipsize="end"
+                android:maxLength="15"
+                android:maxLines="1"
                 android:text="@{myVar.teams.away.name}"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toStartOf="@+id/teamAwayLogo"
@@ -96,6 +114,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                android:layout_marginTop="2dp"
                 android:id="@+id/teamAwayScore"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -103,16 +122,15 @@
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/teamAwayName"
                 app:layout_constraintStart_toStartOf="@+id/teamAwayName"
                 app:layout_constraintTop_toBottomOf="@+id/teamAwayName" />
 
             <ImageView
-                android:loadAwayImage="@{myVar.teams.away.logo}"
                 android:id="@+id/teamAwayLogo"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
+                android:loadAwayImage="@{myVar.teams.away.logo}"
                 android:src="@mipmap/ic_launcher"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

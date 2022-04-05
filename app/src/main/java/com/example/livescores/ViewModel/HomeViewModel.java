@@ -15,8 +15,14 @@ HomeFragmentRepo homeFragmentRepo;
     public void setMatches(){
         homeFragmentRepo.setMatches();
     }
+    public void setMatchesAll(){
+        homeFragmentRepo.setMatchesLiveAll();
+    }
 
     public LiveData<FullFixtures> getMatches(){
         return homeFragmentRepo.getMatches();
+    }
+    public LiveData<FullFixtures> getMatchesAll(){
+        return homeFragmentRepo.getMatchesAll();
     }
 }

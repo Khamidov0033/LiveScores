@@ -19,7 +19,7 @@ public class League {
     private String logo;
     @SerializedName("flag")
     @Expose
-    private Object flag;
+    private String flag;
     @SerializedName("season")
     @Expose
     private Integer season;
@@ -59,11 +59,11 @@ public class League {
         this.logo = logo;
     }
 
-    public Object getFlag() {
+    public String getFlag() {
         return flag;
     }
 
-    public void setFlag(Object flag) {
+    public void setFlag(String flag) {
         this.flag = flag;
     }
 

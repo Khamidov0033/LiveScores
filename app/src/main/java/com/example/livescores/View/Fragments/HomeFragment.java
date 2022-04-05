@@ -18,6 +18,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
@@ -27,6 +28,7 @@ import com.example.livescores.Response;
 import com.example.livescores.R;
 import com.example.livescores.ViewModel.HomeViewModel;
 import com.example.livescores.databinding.HomeFragmentBinding;
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,15 +54,41 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         setImageSlider();
-        observeMatches();
-        initRecycler();
+
+        binding.libeTab.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                switch (tab.getPosition()){
+                    case 0:
+                //        Toast.makeText(getContext(), "Tab 0 selected", Toast.LENGTH_SHORT).show();
+                        getChildFragmentManager().beginTransaction().replace(R.id.homeFrame, new LiveTopFragment()).commit();
+                        break;
+                    case 1:
+               //         Toast.makeText(getContext(), "Tab 1 selected", Toast.LENGTH_SHORT).show();
+                        getChildFragmentManager().beginTransaction().replace(R.id.homeFrame, new LiveAllFragment()).commit();
+
+                }
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+      //  observeMatches();
+     //   initRecycler();
     }
 
     private void initRecycler() {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
         matchesRecyclerViewAdapter = new MatchesRecyclerViewAdapter(matchList);
-        binding.liveGamesRv.setAdapter(matchesRecyclerViewAdapter);
-        binding.liveGamesRv.setLayoutManager(linearLayoutManager);
+//        binding.liveGamesRv.setAdapter(matchesRecyclerViewAdapter);
+//        binding.liveGamesRv.setLayoutManager(linearLayoutManager);
     }
 
     private void observeMatches() {

@@ -1,31 +1,34 @@
 package com.example.livescores;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.livescores.databinding.MatchItemBinding;
 
 import java.util.List;
 
-public class MatchesRecyclerViewAdapter extends RecyclerView.Adapter<MatchesRecyclerViewAdapter.MyViewHolder> {
+public class MatchesAllRecyclerViewAdapter extends RecyclerView.Adapter<MatchesAllRecyclerViewAdapter.MyViewHolder> {
     List<Response> matchList;
     MatchItemBinding matchItemBinding;
 
-    public MatchesRecyclerViewAdapter(List<Response> matchList) {
+    public MatchesAllRecyclerViewAdapter(List<Response> matchList) {
         this.matchList = matchList;
     }
 
     @NonNull
     @Override
-    public MatchesRecyclerViewAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MatchesAllRecyclerViewAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         matchItemBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.match_item, parent, false);
         return new MyViewHolder(matchItemBinding);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MatchesRecyclerViewAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MatchesAllRecyclerViewAdapter.MyViewHolder holder, int position) {
         Response response = matchList.get(position);
         String date = response.getFixture().getDate();
         String time = date.substring(date.lastIndexOf("T") + 1,date.lastIndexOf(":")-6);
@@ -44,9 +47,7 @@ public class MatchesRecyclerViewAdapter extends RecyclerView.Adapter<MatchesRecy
     public void setMatchesList(List<Response> newMatchesList) {
 
         this.matchList = newMatchesList;
-
         notifyDataSetChanged();
-
     }
 
     @Override

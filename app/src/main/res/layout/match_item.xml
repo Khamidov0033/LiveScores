@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
     <data>
 <variable
     name="myVar"
@@ -10,15 +9,61 @@
 
     <RelativeLayout
         android:layout_marginTop="5dp"
-        android:background="@color/ligh_black"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="wrap_content"
         android:paddingLeft="10dp"
-        android:paddingRight="10dp">
+        android:paddingRight="10dp"
+        >
+
+        <RelativeLayout
+            android:id="@+id/relativeLeague"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:layout_centerInParent="true"
+    >
+
+    <ImageView
+        android:id="@+id/leagueLogo"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="10dp"
+        android:loadHomeImage="@{myVar.league.logo}"
+        android:layout_centerVertical="true"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+
+                android:id="@+id/leagueName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@id/leagueLogo"
+                android:ellipsize="end"
+                android:maxLength="25"
+                android:maxLines="1"
+                android:text="@{myVar.league.name}"
+                android:textColor="@color/white" />
+</RelativeLayout>
+        </RelativeLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent">
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_below="@+id/relativeLeague"
+            android:layout_marginTop="5dp"
+            android:background="@color/ligh_black"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp">
 
             <ImageView
                 android:id="@+id/teamHomeLogo"
@@ -34,8 +79,9 @@
                 android:id="@+id/teamHomeName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+
                 android:ellipsize="end"
                 android:maxLength="15"
                 android:maxLines="1"
@@ -43,48 +89,49 @@
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toStartOf="@+id/versusText"
                 app:layout_constraintStart_toEndOf="@+id/teamHomeLogo"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="@id/teamHomeLogo" />
 
             <TextView
-                android:layout_marginTop="2dp"
                 android:id="@+id/teamHomeScore"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
                 android:text="@{String.valueOf(myVar.goals.home)}"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="bold"
-
+                app:layout_constraintBottom_toBottomOf="@id/teamHomeLogo"
                 app:layout_constraintEnd_toEndOf="@+id/teamHomeName"
                 app:layout_constraintStart_toStartOf="@+id/teamHomeName"
                 app:layout_constraintTop_toBottomOf="@+id/teamHomeName" />
 
 
             <TextView
-                android:visibility="invisible"
                 android:id="@+id/versusText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
                 android:text="vs"
                 android:textColor="@color/white"
+                android:visibility="invisible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
                 android:id="@+id/timeText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
                 android:text="16:00"
-                android:textSize="12sp"
                 android:textColor="@color/white"
+                android:textSize="12sp"
+
                 app:layout_constraintEnd_toEndOf="@id/versusText"
                 app:layout_constraintStart_toStartOf="@id/versusText"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/versusText"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:layout_marginTop="2dp"
                 android:id="@+id/versusSign"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -102,8 +149,8 @@
                 android:id="@+id/teamAwayName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_marginRight="15dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:ellipsize="end"
                 android:maxLength="15"
                 android:maxLines="1"
@@ -111,17 +158,18 @@
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toStartOf="@+id/teamAwayLogo"
                 app:layout_constraintStart_toEndOf="@+id/versusText"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="@id/teamAwayLogo" />
 
             <TextView
-                android:layout_marginTop="2dp"
                 android:id="@+id/teamAwayScore"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
                 android:text="@{String.valueOf(myVar.goals.away)}"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/teamAwayLogo"
                 app:layout_constraintEnd_toEndOf="@+id/teamAwayName"
                 app:layout_constraintStart_toStartOf="@+id/teamAwayName"
                 app:layout_constraintTop_toBottomOf="@+id/teamAwayName" />

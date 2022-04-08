@@ -8,6 +8,7 @@
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinator"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/fulldark_blue"
@@ -58,11 +59,10 @@
 
 
 
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/homeFrame"
-            android:name="com.example.livescores.View.Fragments.LiveTopFragment"
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/view_pager2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="800dp"
             app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

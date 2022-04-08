@@ -2,6 +2,7 @@ package com.example.livescores.View.Fragments;
 
 import static android.content.ContentValues.TAG;
 
+import androidx.core.view.ViewCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -53,7 +54,9 @@ public class LiveAllFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
-        mViewModel.setMatchesAll();
+
+
+        //  mViewModel.setMatchesAll();
         observeMatches();
         initRecycler();
 
